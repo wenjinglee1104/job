@@ -1,0 +1,19 @@
+class Solution {
+    public int[] reversePrint(ListNode head) {
+        LinkedList <Integer> stack = new LinkedList<Integer>(); #如何定义一个栈
+        while(head != null) #这个地方是一个边界条件，不是if
+        {
+            stack.addLast(head.val);
+            head = head.next;
+        }
+
+        int[] res= new int[stack.size()];#数组的长度不用括号
+        for(int i =0 ;i<res.length;i++)
+        {
+            res[i]=stack.removeLast();
+            
+        }
+        return res;#函数要有return
+    }
+}
+github怎么传上来代码是一个好看的形式还需要研究，我太懒了
