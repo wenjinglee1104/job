@@ -1,0 +1,17 @@
+class Solution {
+    int res,count;
+    public int kthLargest(TreeNode root, int k) {
+        count = k;
+        dfs(root);
+        return res;
+    }
+    public void dfs(TreeNode root){  #倒序中序遍历
+        if(root==null||count==0) return;
+        dfs(root.right);
+        if(--count==0) { #花括号写上
+            res=root.val;
+            return;
+        }   
+        dfs(root.left);
+    }
+}
