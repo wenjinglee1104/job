@@ -1,0 +1,25 @@
+class Solution {
+    public int[] singleNumbers(int[] nums) {
+        int single=0;
+        for(int num:nums){
+            single^=num;
+        }
+       
+
+        int k=single&(-single);
+
+        int a=0,b=0;
+        for(int num:nums){
+            if((num&k)==0){
+                a^=num;
+            }
+            else{
+                b^=num;
+            }
+
+        }
+        return new int[]{a,b};
+
+    }
+}
+想这个题解的人简直是太聪明了，首先求出异或，然后利用与求一个位，通过位的区分获得每一组的结果。(这个题让我想到两个题，一个是求一个数的1有多少个，还有一个是只出现一次的数字)
